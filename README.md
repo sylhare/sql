@@ -14,3 +14,20 @@ brew install --cask sqlitestudio
 ```
 
 Once open, you can add a database or create one, then use the pencil and paper icon 📝 to open the SQL Editor.
+
+## Common errors
+
+### Change SQLite database mode to read-write
+
+If you have ever encountered:
+
+```bash
+Error while executing SQL query on database 'test': attempt to write a readonly database
+```
+
+Then there are a couple of things you can [check](https://stackoverflow.com/questions/1518729/change-sqlite-database-mode-to-read-write):
+
+ - Is there multiple process accessing the db? 
+ 	- You can restart sqlstudio on Mac for example if it suddenly stopped working
+ - Are the db and the folder with write access for the user?
+ 	- You can use `chmod 755 *.db` to add write access to them and again for the folder
