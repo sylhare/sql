@@ -31,3 +31,30 @@ Then there are a couple of things you can [check](https://stackoverflow.com/ques
  	- You can restart sqlstudio on Mac for example if it suddenly stopped working
  - Are the db and the folder with write access for the user?
  	- You can use `chmod 755 *.db` to add write access to them and again for the folder
+
+## SQL Limbo
+
+### JOIN
+
+#### Introduction
+
+A JOIN operation serves to select correlated information from two tables.
+A JOIN query goes in a simplified way like that:
+
+```SQL
+FROM left JOIN right ON condition
+```
+
+Where left and right are TABLES.
+
+#### Types of JOIN
+
+INNER JOIN: which is the default include from both tables when the condition is met
+
+LEFT OUTER JOIN: Includes the rows where the conditions are met plus all the row of the left table where the conditions are not met. 
+
+RIGHT OUTER JOIN: Not always supported. Same thing as the LEFT OUTER JOIN but includes the rows not met from the right table.
+
+FULL OUTER JOIN:  Not always supported. Takes here the condition is met for plus all remaining rows not met from left and right.
+
+> By default when the condition is not match on the other table, its corresponding value will be `NULL`
