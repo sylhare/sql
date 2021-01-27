@@ -32,6 +32,15 @@ Then there are a couple of things you can [check](https://stackoverflow.com/ques
  - Are the db and the folder with write access for the user?
  	- You can use `chmod 755 *.db` to add write access to them and again for the folder
 
+### Error codes
+
+You will encounter them from time to time when writing erroneous queries.
+So here is what to do in mySQL:
+
+- ORA-00911: invalid character
+	- Check for any weird character typo
+	- If you want to use modulo, use `MOD(x, y)` instead of `x % y`
+
 ## SQL Limbo
 
 ### JOIN
