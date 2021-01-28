@@ -35,11 +35,16 @@ Then there are a couple of things you can [check](https://stackoverflow.com/ques
 ### Error codes
 
 You will encounter them from time to time when writing erroneous queries.
-So here is what to do in mySQL:
+An example of mySQL error, usually pretty verbose:
+
+- ERROR 1064 (42000) at line 4: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near.
+
+However make sure you are running on a mySQL server. Here is an Oracle server error (With the `ORA-`)
 
 - ORA-00911: invalid character
-	- Check for any weird character typo
 	- If you want to use modulo, use `MOD(x, y)` instead of `x % y`
+
+Any way if you see these kind of errors make sure you didn't type a werid character (like $, \ depending on the db).
 
 ## SQL Limbo
 
@@ -51,19 +56,18 @@ A JOIN operation serves to select correlated information from two tables.
 A JOIN query goes in a simplified way like that:
 
 ```SQL
-FROM left JOIN right ON condition
+SELECT * FROM leftTable JOIN rightTable ON condition;
 ```
 
 Where left and right are TABLES.
 
 #### Types of JOIN
 
-INNER JOIN: which is the default include from both tables when the condition is met
+Because it has multiple flavours, but the two first one are the main ones:
 
-LEFT OUTER JOIN: Includes the rows where the conditions are met plus all the row of the left table where the conditions are not met. 
-
-RIGHT OUTER JOIN: Not always supported. Same thing as the LEFT OUTER JOIN but includes the rows not met from the right table.
-
-FULL OUTER JOIN:  Not always supported. Takes here the condition is met for plus all remaining rows not met from left and right.
+- INNER JOIN: which is the default include from both tables when the condition is met
+- LEFT (OUTER) JOIN: Includes the rows where the conditions are met plus all the row of the left table where the conditions are not met. 
+- RIGHT (OUTER) JOIN: Not always supported. Same thing as the LEFT OUTER JOIN but includes the rows not met from the right table.
+- FULL (OUTER) JOIN:  Not always supported. Takes here the condition is met for plus all remaining rows not met from left and right.
 
 > By default when the condition is not match on the other table, its corresponding value will be `NULL`
