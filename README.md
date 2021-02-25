@@ -48,6 +48,8 @@ Any way if you see these kind of errors make sure you didn't type a werid charac
 
 ## SQL Limbo
 
+Here we are looking at mySQL function that are the most common to other system. But if you get an error make sure it is the right syntax for the right system.
+
 ### JOIN
 
 #### Introduction
@@ -71,3 +73,21 @@ Because it has multiple flavours, but the two first one are the main ones:
 - FULL (OUTER) JOIN:  Not always supported. Takes here the condition is met for plus all remaining rows not met from left and right.
 
 > By default when the condition is not match on the other table, its corresponding value will be `NULL`
+
+### Operation with STRING
+
+Most common operator: 
+- LENGTH('string'): to return the length of the string
+- That may differ from system to system SUBSTR('string', 4, 2) -> in or SUBSTR('string', 3) -> ring
+- TRIM() by default space or TRIM('..spring..', '.')
+
+Concatenation in mySQL can be done like SELECT 'this' || ' is ' || 'sparta!'
+
+### Operation with INT
+
+For example 0 means false while 1 means true.
+
+TYPEOF(1) -- integer
+TYPEOF(1.0) -- real
+SELECT TYPEOF('panda' + 'koala'); -- integer because the concatenation in mySQL is done via `||` do here it tries to transform the text into integer yielding 0 and then tries to sum them up.
+
