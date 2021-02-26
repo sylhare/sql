@@ -91,3 +91,20 @@ TYPEOF(1) -- integer
 TYPEOF(1.0) -- real
 SELECT TYPEOF('panda' + 'koala'); -- integer because the concatenation in mySQL is done via `||` do here it tries to transform the text into integer yielding 0 and then tries to sum them up.
 
+### Transactions
+
+It is a way to group operations. Using:
+```sql
+BEGIN TRANSACTION
+	-- operations with something like INSERT, UPDATE, DELETE
+END TRANSACTION
+```
+
+They allow for concurrency and in case of error for one of the operation you can revert to the previous state of the db.
+They improve reliability and performance for bigger db or more complex operation.
+
+## Sources
+
+- Bill Weinman's [SQL course](https://www.linkedin.com/learning/sql-essential-training-3/).
+- Wikipedia [SQL](https://en.wikipedia.org/wiki/SQL)
+
