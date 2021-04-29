@@ -76,7 +76,8 @@ Because it has multiple flavours, but the two first one are the main ones:
 
 ### Operation with STRING
 
-Most common operator: 
+Most common operator:
+
 - LENGTH('string'): to return the length of the string
 - That may differ from system to system SUBSTR('string', 4, 2) -> in or SUBSTR('string', 3) -> ring
 - TRIM() by default space or TRIM('..spring..', '.')
@@ -87,13 +88,16 @@ Concatenation in mySQL can be done like SELECT 'this' || ' is ' || 'sparta!'
 
 For example 0 means false while 1 means true.
 
+```sql
 TYPEOF(1) -- integer
 TYPEOF(1.0) -- real
 SELECT TYPEOF('panda' + 'koala'); -- integer because the concatenation in mySQL is done via `||` do here it tries to transform the text into integer yielding 0 and then tries to sum them up.
+```
 
 ### Transactions
 
 It is a way to group operations. Using:
+
 ```sql
 BEGIN TRANSACTION
 	-- operations with something like INSERT, UPDATE, DELETE
